@@ -1,6 +1,6 @@
 # evincedmcp-prompts
 
-Clean, prefix-free **`/evinced_fix_webpage_issues`** shortcut over the
+Clean, prefix-free **`/fix_accessibility`** shortcut over the
 [Evinced Web MCP](https://www.npmjs.com/package/@evinced/mcp-server-web), working
 in **both** Claude Code and GitHub Copilot — with zero install. Open the folder in
 either tool and the shortcut appears in the `/` menu.
@@ -19,7 +19,7 @@ install script, nothing written to system folders:
 | | Claude Code | GitHub Copilot |
 |---|---|---|
 | MCP server config | [`.mcp.json`](.mcp.json) (`mcpServers`) | [`.vscode/mcp.json`](.vscode/mcp.json) (`servers`, `type: stdio`) |
-| Clean shortcut | [`.claude/commands/evinced_fix_webpage_issues.md`](.claude/commands/evinced_fix_webpage_issues.md) | [`.github/prompts/evinced_fix_webpage_issues.prompt.md`](.github/prompts/evinced_fix_webpage_issues.prompt.md) |
+| Clean shortcut | [`.claude/commands/fix_accessibility.md`](.claude/commands/fix_accessibility.md) | [`.github/prompts/fix_accessibility.prompt.md`](.github/prompts/fix_accessibility.prompt.md) |
 | Arg syntax | `$ARGUMENTS` | `${input:url}` |
 | Tool binding | `allowed-tools: Bash(node:*), mcp__evinced-web-mcp` | `tools: ['evinced-web-mcp/*', 'runInTerminal']` |
 | Fetches canonical prompt via | `` !`node …` `` shell-injection at invocation | agent runs the script in the terminal |
@@ -57,7 +57,7 @@ The Evinced server itself is **referenced, not vendored** — it's pulled on dem
 
 1. Open this folder in Claude Code or VS Code (Copilot).
 2. Approve / start the `evinced-web-mcp` server when the IDE prompts.
-3. In the chat box, type `/evinced_fix_webpage_issues` (optionally followed by a URL;
+3. In the chat box, type `/fix_accessibility` (optionally followed by a URL;
    omit it to scan the active tab).
 
 The shortcut will scan the page, fetch Evinced's per-issue remediation instructions,
