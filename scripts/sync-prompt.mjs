@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Auto-syncs the prefix-free /a11y slash command from the Evinced Web MCP server.
+// Auto-syncs the prefix-free /fix_accessibility slash command from the Evinced Web MCP server.
 //
 // WHY: native MCP prompts always carry the `/mcp.<server>.` (Copilot) or
 // `/mcp__<server>__` (Claude) prefix. The only prefix-free slash commands are
@@ -8,7 +8,7 @@
 // MCP server's canonical `evinced_fix_webpage_issues` prompt:
 //   - VS Code: a folderOpen task runs this with --target=copilot
 //   - Claude Code: a SessionStart hook runs this with --target=claude
-// The generated files are committed (so /a11y exists on clone) and overwritten on
+// The generated files are committed (so /fix_accessibility exists on clone) and overwritten on
 // each open/start (so they track the server). Never hand-edit them.
 //
 // On fetch failure it leaves existing files UNTOUCHED (preserving the committed
