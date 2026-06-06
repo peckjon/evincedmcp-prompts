@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const UPSTREAM_PROMPT = 'evinced_fix_webpage_issues'; // canonical prompt on the server
-const COMMAND = 'a11y';                               // prefix-free name users type: /a11y
+const COMMAND = 'fix_accessibility';                  // prefix-free name users type: /fix_accessibility
 const DESCRIPTION =
   'Analyze & remediate web accessibility issues (Evinced) — canonical workflow, auto-synced from the MCP';
 const TIMEOUT_MS = 60000;

@@ -1,9 +1,9 @@
 # evincedmcp-prompts
 
-Clean, prefix-free **`/a11y`** shortcut over the
+Clean, prefix-free **`/fix_accessibility`** shortcut over the
 [Evinced Web MCP](https://www.npmjs.com/package/@evinced/mcp-server-web), working
 in **both** Claude Code and GitHub Copilot — with zero install. Open the folder in
-either tool and `/a11y` appears in the `/` menu.
+either tool and `/fix_accessibility` appears in the `/` menu.
 
 It gives you a short, memorable command instead of the verbose, prefixed native form
 (`/mcp.evinced-web-mcp.evinced_fix_webpage_issues`). The command carries **no workflow
@@ -32,13 +32,13 @@ written to system folders:
 | | Claude Code | GitHub Copilot |
 |---|---|---|
 | MCP server config | [`.mcp.json`](.mcp.json) (`mcpServers`) | [`.vscode/mcp.json`](.vscode/mcp.json) (`servers`, `type: stdio`) |
-| Generated shortcut | [`.claude/commands/a11y.md`](.claude/commands/a11y.md) | [`.github/prompts/a11y.prompt.md`](.github/prompts/a11y.prompt.md) |
+| Generated shortcut | [`.claude/commands/fix_accessibility.md`](.claude/commands/fix_accessibility.md) | [`.github/prompts/fix_accessibility.prompt.md`](.github/prompts/fix_accessibility.prompt.md) |
 | Auto-refresh trigger | `SessionStart` hook in [`.claude/settings.json`](.claude/settings.json) | `folderOpen` task in [`.vscode/tasks.json`](.vscode/tasks.json) |
 | Arg syntax | `$ARGUMENTS` | `${input:url}` |
 
 Both triggers run the shared generator
 [`scripts/sync-prompt.mjs`](scripts/sync-prompt.mjs), which queries the MCP server over
-JSON-RPC (`prompts/get`) and rewrites the `/a11y` file with the current canonical text.
+JSON-RPC (`prompts/get`) and rewrites the `/fix_accessibility` file with the current canonical text.
 If the server is unreachable it **leaves the committed file untouched** (so an offline
 open never breaks the command) and exits cleanly.
 
@@ -65,12 +65,12 @@ Evinced server itself is **referenced, not vendored** — pulled on demand via
 
 1. Open this folder in Claude Code or VS Code (Copilot).
 2. Approve the auto-run trigger when prompted (Claude reviews project hooks; VS Code
-   asks for workspace trust). This lets the `/a11y` file refresh on open.
+   asks for workspace trust). This lets the `/fix_accessibility` file refresh on open.
 3. Approve / start the `evinced-web-mcp` server when the IDE prompts.
-4. In the chat box, type `/a11y` (optionally followed by a URL; omit it to scan the
+4. In the chat box, type `/fix_accessibility` (optionally followed by a URL; omit it to scan the
    active tab).
 
-`/a11y` runs Evinced's canonical workflow: scope → scan → per-issue remediation
+`/fix_accessibility` runs Evinced's canonical workflow: scope → scan → per-issue remediation
 instructions → fix one at a time (most severe first, using ARIA APG patterns) →
 validate.
 
@@ -88,6 +88,6 @@ node scripts/sync-prompt.mjs --target=claude   # or copilot
   trust prompt. Cloners inherit this behavior. If you prefer no auto-run, delete the
   hook / task and refresh manually with the command above.
 - **Copilot setting:** prompt files require `"chat.promptFiles": true` — the default in
-  current VS Code; enable it if `/a11y` doesn't appear.
+  current VS Code; enable it if `/fix_accessibility` doesn't appear.
 - **Server config differences** between the two IDEs are deliberate (see table above);
   keep both files in sync if you change the launch command.
