@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "evinced-web-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@evinced/mcp-server-web", "--extension"]
+    }
+  },
+  "inputs": []
+}
