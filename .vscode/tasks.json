@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sync Evinced /a11y prompt",
+      "detail": "Regenerates .github/prompts/a11y.prompt.md from the evinced-web-mcp canonical prompt.",
+      "type": "shell",
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/sync-prompt.mjs", "--target=copilot"],
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "silent", "panel": "shared", "close": true },
+      "problemMatcher": []
+    }
+  ]
+}
