@@ -49,7 +49,7 @@ A bare-named local command that, **at invocation, fetches the canonical MCP prom
 (JSON-RPC `prompts/get` via a small Node script) and runs it — so no workflow is
 duplicated locally.
 
-- **Claude Code:** `.claude/commands/evinced_fix_webpage_issues.md` uses
+- **Claude Code:** `.claude/commands/fix_accessibility.md` uses
   `` !`node fetch…` `` **bang-injection** to inline the fetched prompt as prompt content.
 - **Copilot:** `.github/prompts/…prompt.md` tells the agent to run the fetch script in
   the terminal and follow its output.
@@ -77,7 +77,7 @@ retrieve and call the prompt" still isn't achieved on the Copilot side.
 ### [`download-on-open`](https://github.com/peckjon/evincedmcp-prompts/tree/download-on-open)
 
 Avoid runtime fetch on every call: a script (`scripts/sync-prompt.mjs`) **downloads** the
-canonical prompt from the MCP and writes it into a bare-named command (`/a11y`), keeping
+canonical prompt from the MCP and writes it into a bare-named command (`/fix_accessibility`), keeping
 it fresh automatically — via a Claude Code `SessionStart` hook and a VS Code `folderOpen`
 task.
 
