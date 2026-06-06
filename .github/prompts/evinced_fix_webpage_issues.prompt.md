@@ -1,19 +1,17 @@
 ---
 mode: agent
-description: 'Find and fix web accessibility issues on a page using the Evinced Web MCP'
-tools: ['evinced-web-mcp/*']
+description: 'Run Evinced''s canonical accessibility analyze-and-remediate orchestration prompt, fetched live from the Evinced Web MCP'
+tools: ['evinced-web-mcp/*', 'runInTerminal']
 ---
 
-Use the **Evinced Web MCP** tools to find and remediate accessibility issues, then fix them.
+Do **not** improvise an accessibility workflow or make local assumptions. The canonical workflow lives in the Evinced Web MCP server and must be fetched and followed verbatim.
 
-Target: `${input:url:active browser tab}` — if left as the active tab, scan the currently open browser tab via the Evinced extension; if a URL is given, scan that page in a new tab.
+1. Run this command in the terminal to retrieve the canonical orchestration prompt:
 
-Follow this workflow strictly:
+   ```
+   node "${workspaceFolder}/.github/scripts/fetch-orchestrator-prompt.mjs"
+   ```
 
-1. **Scan.** Call `evinced_analyze_webpage`. Use `tabMode: "active_tab"` by default, or `tabMode: "new_tab"` with the provided URL. Report the issue summary grouped by severity (Critical, Serious, Moderate, Minor).
-2. **Get guidance.** For each unique issue type, call `evinced_get_webpage_issue_details` and use its `remediation_instructions` as the **single source of truth** for the fix.
-3. **Fix one at a time.** Remediate a single issue, most-severe-first (Critical → Serious → Moderate → Minor). Apply ARIA Authoring Practices Guide (APG) patterns. Do **not** batch-fix — batching can introduce new violations.
-4. **Validate.** After each Critical or Serious fix, re-run `evinced_analyze_webpage` to confirm the issue is resolved and nothing regressed before moving to the next.
-5. **Summarize.** Report what was fixed, what remains, and any issues that need human judgment.
+2. Treat the command's printed output as your **single source of truth** instructions. Follow it exactly — do not skip, reorder, or substitute steps. If the output begins with `STOP:`, report it to me and stop.
 
-If the server requires authentication, complete the Evinced web login when prompted. Extension mode requires the Evinced Chrome extension installed and a browser running.
+Scope / target for this run: `${input:url:active browser tab}` — if left as the active tab, the target is the currently open browser tab via the Evinced extension; otherwise treat it as the URL or scope to work on. Resolve any ambiguity per the fetched prompt's own scope step — do not guess.
