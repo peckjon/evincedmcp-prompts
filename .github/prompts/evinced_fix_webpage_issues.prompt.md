@@ -1,7 +1,7 @@
 ---
 mode: agent
 description: 'Run Evinced''s canonical accessibility analyze-and-remediate orchestration prompt, fetched live from the Evinced Web MCP'
-tools: ['evinced-web-mcp/*', 'runInTerminal']
+tools: ['evinced-web-mcp/*', 'execute/runInTerminal', 'execute/getTerminalOutput', 'edit/editFiles', 'search/codebase']
 ---
 
 Do **not** improvise an accessibility workflow or make local assumptions. The canonical workflow lives in the Evinced Web MCP server and must be fetched and followed verbatim.
