@@ -83,8 +83,9 @@ task.
 
 **Why insufficient:** It depends on **auto-run on open** — a persistent
 code-execution-on-open mechanism that every cloner inherits (behind a one-time trust
-prompt). That was a non-starter. The generated command is also a committed copy (diff
-churn), and it refreshes per-open rather than per-invocation.
+prompt). Developers may decline that trust prompt, which leaves the command stale and
+the whole approach inert. The generated command is also a committed copy (diff churn),
+and it refreshes per-open rather than per-invocation.
 
 ## Final analysis: the update-notification angle
 
