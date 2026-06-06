@@ -87,6 +87,8 @@ prompt). Developers may decline that trust prompt, which leaves the command stal
 the whole approach inert. The generated command is also a committed copy (diff churn),
 and it refreshes per-open rather than per-invocation.
 
+And this still suffers from the same problem as before: the prompt is injected as static text, not a native call, so the behavior differs between IDEs.
+
 ## Final analysis: the update-notification angle
 
 Stepping back, the requirement that actually matters is **shipping prompt updates** —
