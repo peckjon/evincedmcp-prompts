@@ -1,6 +1,6 @@
 # evincedmcp-prompts
 
-An exploration of how to expose the [Evinced Web MCP](https://www.npmjs.com/package/@evinced/mcp-server-web)
+An exploration of how to expose the [Evinced Web MCP](https://developer.evinced.com/MCP-Servers/web-mcp-server)
 accessibility **analyze-and-remediate workflow** as a short, memorable slash command —
 ideally the same one in **both Claude Code and GitHub Copilot** — without hardcoding the
 workflow locally, and with a way to ship updates.
