@@ -21,7 +21,7 @@ so Claude reports the problem rather than improvising a workflow.
 > Skills register at session start — after pulling this repo, reload/restart Claude
 > Code once for `/fix_accessibility` to appear.
 
-## GitHub Copilot — `/evinced_fix_webpage_issues`
+## GitHub Copilot — `/fix_accessibility`
 
 Copilot has **no skills** and no way to alias/shorten an MCP prompt name, so there is no
 `/fix_accessibility` equivalent. Two options, both no-auto-run and always-current:
@@ -30,7 +30,7 @@ Copilot has **no skills** and no way to alias/shorten an MCP prompt name, so the
   `/mcp.evinced-web-mcp.evinced_fix_webpage_issues`. VS Code fetches the prompt and
   injects it natively, giving the full interactive UX. Downside: the long, prefixed name.
 - **Short name (this repo's prompt file):**
-  [`.github/prompts/evinced_fix_webpage_issues.prompt.md`](.github/prompts/evinced_fix_webpage_issues.prompt.md)
+  [`.github/prompts/fix_accessibility.prompt.md`](.github/prompts/fix_accessibility.prompt.md)
   has the agent run [`.github/scripts/fetch-orchestrator-prompt.mjs`](.github/scripts/fetch-orchestrator-prompt.mjs)
   in the terminal and follow its output. Short name, but a less-native invocation than
   the command above.
